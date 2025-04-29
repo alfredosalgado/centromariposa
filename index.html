@@ -18,12 +18,17 @@
 
     .butterfly {
       position: absolute;
-      width: 50px; /* Ajusta según el tamaño de tu GIF */
-      height: 50px; /* Ajusta según el tamaño de tu GIF */
-      background: url('./mariposa.gif') no-repeat center; /* Reemplaza con la URL de tu GIF */
-      background-size: contain;
+      width: 50px; /* Ajusta según el tamaño de tus GIFs */
+      height: 50px; /* Ajusta según el tamaño de tus GIFs */
       opacity: 0;
       animation: fadeIn 1s forwards;
+    }
+
+    .butterfly img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Asegura que el GIF se ajuste sin recortes */
+      display: block;
     }
 
     /* Animación de aparición */
@@ -31,12 +36,13 @@
       to { opacity: 0.8; }
     }
 
-    /* Animación de movimiento en la pantalla */
-    .butterfly:nth-child(odd) {
+    /* Animación de movimiento izquierda a derecha */
+    .butterfly-odd {
       animation: fadeIn 1s forwards, moveOdd 10s linear forwards;
     }
 
-    .butterfly:nth-child(even) {
+    /* Animación de movimiento derecha a izquierda */
+    .butterfly-even {
       animation: fadeIn 1s forwards, moveEven 10s linear forwards;
     }
 
@@ -75,12 +81,21 @@
 
   <script>
     window.onload = function() {
-      const numButterflies = 10; // Número de mariposas
+      const numButterflies = 30; // Número de mariposas
       const body = document.body;
+      // URLs de los GIFs (reemplaza con las tuyas)
+      const butterflyLeftToRight = './mariposa.gif';
+      const butterflyRightToLeft = './mariposa2.gif';
 
       for (let i = 0; i < numButterflies; i++) {
         const butterfly = document.createElement('div');
-        butterfly.classList.add('butterfly');
+        butterfly.classList.add('butterfly', i % 2 === 0 ? 'butterfly-even' : 'butterfly-odd');
+        
+        // Crear elemento img para el GIF
+        const img = document.createElement('img');
+        img.src = i % 2 === 0 ? butterflyRightToLeft : butterflyLeftToRight;
+        img.alt = 'Mariposa';
+        butterfly.appendChild(img);
         
         // Posición inicial aleatoria
         butterfly.style.left = Math.random() * window.innerWidth + 'px';
