@@ -3,115 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centro Mariposa - Animación de Mariposas</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background-color: #f0f4f8;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-    }
-
-    .butterfly {
-      position: absolute;
-      width: 50px; /* Ajusta según el tamaño de tus GIFs */
-      height: 50px; /* Ajusta según el tamaño de tus GIFs */
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    .butterfly img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Asegura que el GIF se ajuste sin recortes */
-      display: block;
-    }
-
-    /* Animación de aparición */
-    @keyframes fadeIn {
-      to { opacity: 0.8; }
-    }
-
-    /* Animación de movimiento izquierda a derecha */
-    .butterfly-odd {
-      animation: fadeIn 1s forwards, moveOdd 10s linear forwards;
-    }
-
-    /* Animación de movimiento derecha a izquierda */
-    .butterfly-even {
-      animation: fadeIn 1s forwards, moveEven 10s linear forwards;
-    }
-
-    @keyframes moveOdd {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(100vw, -50vh); }
-    }
-
-    @keyframes moveEven {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100vw, 50vh); }
-    }
-
-    .welcome-text {
-      text-align: center;
-      color: #333;
-      z-index: 10;
-    }
-
-    .welcome-text h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .welcome-text p {
-      font-size: 1.2em;
-      color: #666;
-    }
-  </style>
+  <title>Centro Mariposa</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <div class="welcome-text">
-    <h1>Bienvenidos al Centro Mariposa</h1>
-    <p>Un espacio de atención psicológica infanto-juvenil donde la empatía, el juego, la tecnología y la comunidad se unen para sanar.</p>
-  </div>
+  <!-- Header/Portada -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Centro Mariposa:<br>Alas para sanar, fuerza para volar</h1>
+      <p>Un espacio de atención psicológica infanto-juvenil donde la empatía, el juego, la tecnología y la comunidad se unen para sanar.</p>
+      <a href="#" class="btn">Solicita tu primera entrevista...</a>
+    </div>
+  </header>
 
-  <script>
-    window.onload = function() {
-      const numButterflies = 20; // Número de mariposas
-      const body = document.body;
-      // URLs de los GIFs (reemplaza con las tuyas)
-      const butterflyLeftToRight = './mariposa.gif';
-      const butterflyRightToLeft = './mariposa2.gif';
-
-      for (let i = 0; i < numButterflies; i++) {
-        const butterfly = document.createElement('div');
-        butterfly.classList.add('butterfly', i % 2 === 0 ? 'butterfly-even' : 'butterfly-odd');
-        
-        // Crear elemento img para el GIF
-        const img = document.createElement('img');
-        img.src = i % 2 === 0 ? butterflyRightToLeft : butterflyLeftToRight;
-        img.alt = 'Mariposa';
-        butterfly.appendChild(img);
-        
-        // Posición inicial aleatoria
-        butterfly.style.left = Math.random() * window.innerWidth + 'px';
-        butterfly.style.top = Math.random() * window.innerHeight + 'px';
-        
-        // Retraso aleatorio para la aparición
-        butterfly.style.animationDelay = Math.random() * 2 + 's';
-        
-        body.appendChild(butterfly);
-        
-        // Remover la mariposa después de que termine su animación
-        setTimeout(() => {
-          butterfly.remove();
-        }, 10000); // 10 segundos, ajusta según necesites
-      }
-    };
-  </script>
+  <!-- Resto del contenido -->
+  <main>
+    <!-- Aquí puedes agregar más secciones -->
+  </main>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
