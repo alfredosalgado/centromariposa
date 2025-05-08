@@ -7,12 +7,12 @@ window.onload = function() {
   const body = document.body;
   // URLs de los GIFs (reemplaza con las tuyas)
   const butterflyLeftToRight = [
-    './assets/img/mariposas/mariposa.gif', // GIF 1 izquierda-derecha
-    './assets/img/mariposas/mariposa3.gif' // GIF 2 izquierda-derecha
+    './assets/img/mariposas/right_lila.gif', // GIF 1 izquierda-derecha
+    './assets/img/mariposas/right_rosa4.gif' // GIF 2 izquierda-derecha
   ];
   const butterflyRightToLeft = [
-    './assets/img/mariposas/mariposa2.gif', // GIF 1 derecha-izquierda
-    './assets/img/mariposas/mariposa4.gif' // GIF 2 derecha-izquierda
+    './assets/img/mariposas/left_rosa.gif', // GIF 1 derecha-izquierda
+    './assets/img/mariposas/left_rosa3.gif' // GIF 2 derecha-izquierda
   ];
 
   for (let i = 0; i < numButterflies; i++) {
@@ -40,6 +40,6 @@ window.onload = function() {
     // Remover la mariposa después de que termine su animación
     setTimeout(() => {
       butterfly.remove();
-    }, 10000); // 10 segundos, ajusta según necesites
+    }, 15000); // 15 segundos, ajusta según necesites
   }
 };

@@ -26,6 +26,7 @@
 .hero {
   position: relative;
   height: 100vh;
+  width: 100%;
   background: url('../img/inicio/portada.jpeg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
@@ -42,7 +43,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.842); /* Overlay negro translúcido */
+  background: rgba(166, 48, 170, 0.26); /* Overlay negro translúcido */
 }
 
 .hero-content {
@@ -101,10 +102,11 @@
 
 body {
   margin: 0;
-  height: 100vh;
+ 
   background-color: #f0f4f8;
-  overflow: hidden;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
@@ -164,4 +166,203 @@ body {
 .welcome-text p {
   font-size: 1.2em;
   color: #666;
+}
+
+main {
+  width: 100%;
+  background: linear-gradient(135deg,#ffe6f0 10%, #ffffff 50%, #fff0f5 90%, #ffe6f0 100%);
+}
+
+.section {
+  
+  padding: 40px 20px;
+  margin: 0;
+  text-align: center;
+  
+}
+.section h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.section p {
+  color: #666;
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+.section .sub-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.sub-section div {
+  max-width: 450px;
+  text-align: left;
+}
+.sub-section h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+
+
+.offer-section {
+  
+  padding: 40px 20px;
+  text-align: center;
+}
+.offer-section h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin: 0 0 30px;
+}
+.offer-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Por defecto: 1 columna para móviles */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center; /* Centra los elementos en cada celda */
+}
+.offer-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 300px; /* Limita el ancho para mejor control */
+  text-align: left;
+}
+.offer-item h2 {
+  color: #333;
+  font-size: 1.2em;
+  margin: 0;
+}
+.offer-item p {
+  color: #666;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.6;
+}
+.offer-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #e6d3e6;
+  border-radius: 5px;
+  flex-shrink: 0; /* Evita que el ícono se deforme */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Tamaño del ícono */
+  color: #fff; /* Color del ícono */
+}
+
+/* Media query para tablets y pantallas más grandes */
+@media (min-width: 768px) {
+  .offer-list {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas para tablets y mayores */
+  }
+}
+
+
+
+
+
+.high-psych-section {
+  
+  padding: 40px 20px;
+}
+.high-psych-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+.high-psych-text-column {
+  flex: 0 0 60%;
+  padding-right: 20px;
+  text-align: left;
+}
+.high-psych-title {
+  color: #333;
+  font-size: 2.5em;
+  margin: 0 0 30px;
+}
+.high-psych-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.high-psych-block {
+  background-color: #f0d4f7;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 90%;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.high-psych-block h2 {
+  color: #333;
+  font-size: 1.2em;
+  margin: 0 0 10px;
+}
+.high-psych-block p {
+  color: #666;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.6;
+}
+.high-psych-footer {
+  color: #666;
+  font-size: 1.1em;
+  margin-top: 20px;
+  max-width: 100%;
+}
+.high-psych-image-column {
+  flex: 0 0 40%;
+  padding-left: 20px;
+}
+.high-psych-image {
+  width: 100%;
+}
+.high-psych-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query para móviles */
+@media (max-width: 767px) {
+  .high-psych-wrapper {
+      flex-direction: column;
+      align-items: center;
+  }
+  .high-psych-text-column, .high-psych-image-column {
+      flex: 0 0 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      width: 100%;
+  }
+  .high-psych-blocks {
+      max-width: 300px;
+      width: 100%;
+  }
+  .high-psych-image {
+      max-width: 300px;
+  }
+
+  .high-psych-title {
+    max-width: 300px;
+    text-align: center;
+  }
+  .high-psych-footer {
+   max-width: 300px;
+   text-align: center;
+  }
 }
