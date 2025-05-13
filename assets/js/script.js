@@ -43,3 +43,48 @@ window.onload = function() {
     }, 15000); // 15 segundos, ajusta según necesites
   }
 };
+
+
+
+let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-content');
+        const intervalTime = 15000; // 15 segundos (configurable)
+        let autoSlide;
+
+        function showTestimonial(index) {
+            // Añadir clase 'leaving' al testimonio actual antes de cambiar
+            testimonials[currentTestimonial].classList.add('leaving');
+            setTimeout(() => {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.classList.remove('active', 'leaving');
+                    if (i === index) {
+                        testimonial.classList.add('active');
+                    }
+                });
+                currentTestimonial = index;
+            }, 500); // Espera 0.5 segundos para que el efecto de salida sea visible
+        }
+
+        function nextTestimonial() {
+            const nextIndex = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(nextIndex);
+            resetAutoSlide();
+        }
+
+        function prevTestimonial() {
+            const prevIndex = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(prevIndex);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlide = setInterval(nextTestimonial, intervalTime);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            startAutoSlide();
+        }
+
+        // Iniciar el cambio automático al cargar la página
+        startAutoSlide();
